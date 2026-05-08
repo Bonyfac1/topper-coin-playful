@@ -230,15 +230,19 @@
     filter: blur(20px);
     z-index: 0;
   }
-  .hero-mascot img {
+  .hero-mascot img,
+  .hero-mascot video {
     position: relative;
     z-index: 1;
+    display: block;
     width: 100%;
     max-width: 460px;
     height: auto;
     border-radius: 50%;
     box-shadow: var(--shadow-lg);
     animation: float 6s ease-in-out infinite;
+    background: var(--cream-2); /* shows during the brief load before first frame */
+    object-fit: cover;
   }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -707,7 +711,18 @@
           <div class="pair-pill">Trading pair · <strong>TPC / SUPRA</strong> on Atmos DEX</div>
         </div>
         <div class="hero-mascot">
-          <img src="/assets/mascot.webp" alt="Topper Harley pilot mascot holding a TPC coin" />
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            poster="/assets/mascot.webp"
+            aria-label="Topper Harley pilot mascot animation"
+          >
+            <source src="/assets/mascot.mp4" type="video/mp4" />
+            <!-- Fallback for browsers that don't support video -->
+            <img src="/assets/mascot.webp" alt="Topper Harley pilot mascot holding a TPC coin" />
+          </video>
         </div>
       </div>
     </section>

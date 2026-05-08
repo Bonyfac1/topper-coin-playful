@@ -19,6 +19,7 @@ UPLOADS=(
   "holders.php:www/holders.php"
   "assets/logo.png:www/assets/logo.png"
   "assets/mascot.webp:www/assets/mascot.webp"
+  "assets/mascot.mp4:www/assets/mascot.mp4"
 )
 
 if [[ ! -f "$CRED_FILE" ]]; then

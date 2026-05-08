@@ -23,6 +23,7 @@ original site at `~/my-first-project/` (deployed to topperharleycoin.com).
 - `history.php` — proxy for Atmos OHLC history (called from JS).
 - `holders.php` — proxy for Suprascan holder count.
 - `assets/logo.png` — round logo mark (favicon + nav).
-- `assets/mascot.webp` — Topper Harley pilot mascot (hero illustration, ~82 KB).
+- `assets/mascot.webp` — Topper Harley pilot mascot still (poster + fallback, ~82 KB).
+- `assets/mascot.mp4` — animated hero loop with audio (~890 KB, H.264 CRF 28). Plays muted+looped on hero; the audio track stays in the file for off-site sharing (X, Telegram).
 - `deploy.sh` — uploads index.html, PHP proxies, and assets via FTP.
 - `.ftp-credentials.example` — template; copy to `.ftp-credentials` and fill.
