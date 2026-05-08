@@ -32,8 +32,8 @@ This uploads `index.html`, both PHP proxies, and the assets to Forpsi.
 
 - Palette: sunset orange (#FF6B35), sky blue (#5BC0EB), cream (#FFF8E7).
 - Font: Fredoka (Google Fonts).
-- Mascot: Topper Harley pilot illustration (`assets/mascot.png`),
-  generated via the higgsfield AI MCP.
+- Mascot: Topper Harley pilot illustration (`assets/mascot.webp`, ~82 KB),
+  generated via the higgsfield AI MCP and converted from PNG to WebP.
 
 ## Sections
 
