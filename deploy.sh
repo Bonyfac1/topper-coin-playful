@@ -18,7 +18,7 @@ UPLOADS=(
   "history.php:www/history.php"
   "holders.php:www/holders.php"
   "assets/logo.png:www/assets/logo.png"
-  "assets/mascot.png:www/assets/mascot.png"
+  "assets/mascot.webp:www/assets/mascot.webp"
 )
 
 if [[ ! -f "$CRED_FILE" ]]; then
