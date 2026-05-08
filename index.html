@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Topper Coin (TPC) — The friendliest meme coin in the sky ✈️</title>
+<meta name="description" content="Topper Coin (TPC) is a community-first meme token on the Supra blockchain. Fair launch, no team allocation, ready for takeoff." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Topper Coin (TPC) ✈️" />
+<meta property="og:description" content="The friendliest meme coin in the sky. Fair launch on Supra. Buckle up." />
+<meta property="og:image" content="https://www.aces.name/assets/mascot.png" />
+<meta property="og:url" content="https://www.aces.name/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Topper Coin (TPC) ✈️" />
+<meta name="twitter:description" content="The friendliest meme coin in the sky. Fair launch on Supra." />
+<meta name="twitter:image" content="https://www.aces.name/assets/mascot.png" />
+
+<link rel="canonical" href="https://www.aces.name/" />
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    /* Playful meme coin palette: sunset orange + sky blue + cream */
+    --cream:        #FFF8E7;
+    --cream-2:      #FEEFD5;
+    --cream-3:      #FDE3B8;
+    --orange:       #FF6B35;
+    --orange-2:     #FF8C5A;
+    --orange-soft:  #FFE5D4;
+    --sky:          #5BC0EB;
+    --sky-2:        #3DA5D9;
+    --sky-soft:     #DBF1FB;
+    --text:         #1F2937;
+    --text-dim:     #6B7280;
+    --border:       #F2D9B0;
+    --border-soft:  #F8E9CE;
+    --up:           #10B981;
+    --down:         #EF4444;
+    --radius:       18px;
+    --radius-lg:    26px;
+    --shadow-sm:    0 2px 6px rgba(255, 107, 53, 0.08);
+    --shadow:       0 8px 28px rgba(255, 107, 53, 0.15);
+    --shadow-lg:    0 18px 48px rgba(255, 107, 53, 0.22);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: "Fredoka", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+
+  body {
+    background:
+      radial-gradient(900px 500px at 90% -5%,  rgba(255, 140, 90, 0.30), transparent 60%),
+      radial-gradient(900px 500px at -5% 10%,  rgba(91, 192, 235, 0.28), transparent 60%),
+      radial-gradient(800px 600px at 50% 100%, rgba(253, 227, 184, 0.55), transparent 65%),
+      var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--sky-2); }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+  }
+  .brand-mark {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.12s, box-shadow 0.18s, opacity 0.15s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), var(--orange-2));
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-secondary {
+    background: var(--cream-2);
+    color: var(--text);
+    border: 2px solid var(--border);
+  }
+  .btn-secondary:hover { background: var(--orange-soft); border-color: var(--orange); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 36px 0 48px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 48px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--cream-2);
+    border: 2px solid var(--border);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--up);
+    box-shadow: 0 0 12px var(--up);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+  .hero h1 {
+    margin: 18px 0 14px;
+    font-size: clamp(38px, 5.6vw, 68px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--orange), var(--orange-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lead {
+    color: var(--text-dim);
+    font-size: 18px;
+    max-width: 540px;
+    margin: 0 0 26px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  .pair-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--sky-soft);
+    border: 2px solid var(--sky);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .pair-pill strong { color: var(--sky-2); font-weight: 700; }
+
+  .hero-mascot {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+  .hero-mascot::before {
+    content: "";
+    position: absolute;
+    inset: 8% 8%;
+    background: radial-gradient(closest-side, rgba(255,140,90,0.35), transparent 70%);
+    filter: blur(20px);
+    z-index: 0;
+  }
+  .hero-mascot img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+
+  /* ---------- Generic card ---------- */
+  .card {
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+  }
+
+  /* ---------- Live chart section ---------- */
+  .chart-section { padding: 16px 0 8px; }
+  .chart-card { padding: 26px; }
+  .chart-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .chart-title {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+  .chart-price {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 6px;
+  }
+  .chart-price small {
+    font-weight: 600;
+    font-size: 14px;
+    margin-left: 10px;
+    background: var(--sky-soft);
+    color: var(--sky-2);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .chart-meta { text-align: right; }
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 380px;
+  }
+
+  .ccy-toggle {
+    display: inline-flex;
+    margin-top: 10px;
+    background: var(--cream-2);
+    border: 2px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+    gap: 2px;
+  }
+  .ccy-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.15s, background 0.15s;
+  }
+  .ccy-btn:hover { color: var(--text); }
+  .ccy-btn.is-active {
+    background: linear-gradient(135deg, var(--orange), var(--orange-2));
+    color: #fff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ---------- Stats grid (under chart) ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .stat {
+    padding: 18px 22px;
+  }
+  .stat .label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+  .stat .value {
+    margin-top: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .stat .value.up { color: var(--up); }
+  .stat .value.down { color: var(--down); }
+
+  /* ---------- Sections ---------- */
+  section.block { padding: 72px 0 16px; }
+  section.block h2 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  section.block .sectionsub {
+    color: var(--text-dim);
+    margin: 0 0 28px;
+    font-size: 17px;
+  }
+
+  /* ---------- Tokenomics ---------- */
+  .tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .card-feature {
+    padding: 24px;
+    text-align: center;
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s, box-shadow 0.18s;
+  }
+  .card-feature:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .card-feature .emoji {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+  .card-feature .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .card-feature .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .feature {
+    padding: 14px 18px;
+    background: var(--sky-soft);
+    border: 2px solid var(--sky);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    text-align: center;
+  }
+
+  /* ---------- How to Buy ---------- */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .step-card {
+    position: relative;
+    padding: 26px 22px 24px;
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s, box-shadow 0.18s, border-color 0.18s;
+  }
+  .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    border-color: var(--orange-soft);
+  }
+  .step-num {
+    position: absolute;
+    top: -14px;
+    left: 22px;
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-2));
+    color: #fff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .step-emoji {
+    font-size: 38px;
+    margin: 6px 0 10px;
+  }
+  .step-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .step-card p {
+    margin: 0 0 12px;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  .step-card a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sky-2);
+    text-decoration: none;
+  }
+  .step-card a:hover { text-decoration: underline; }
+
+  /* ---------- Roadmap ---------- */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .rm-phase {
+    padding: 22px 22px 20px;
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+  .rm-phase.done   { border-color: var(--up); background: linear-gradient(180deg, #fff, #ecfdf5); }
+  .rm-phase.active { border-color: var(--orange); background: linear-gradient(180deg, #fff, var(--orange-soft)); }
+  .rm-status {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+  .rm-phase h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .rm-phase ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+  .rm-phase li { margin-bottom: 4px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list {
+    display: grid;
+    gap: 12px;
+    max-width: 820px;
+  }
+  details.faq-item {
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: var(--radius);
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.18s;
+  }
+  details.faq-item[open] {
+    border-color: var(--orange-soft);
+    box-shadow: var(--shadow-sm);
+  }
+  details.faq-item summary {
+    padding: 18px 22px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: "+";
+    font-size: 24px;
+    color: var(--orange);
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  details.faq-item[open] summary::after { transform: rotate(45deg); }
+  details.faq-item .faq-body {
+    padding: 0 22px 18px;
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  details.faq-item .faq-body code {
+    background: var(--cream-2);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 13px;
+    word-break: break-all;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 80px;
+    padding: 40px 0 40px;
+    border-top: 2px solid var(--border-soft);
+  }
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .footer-label {
+    color: var(--text-dim);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+  .contract {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 8px 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    color: var(--text);
+    max-width: 100%;
+  }
+  .contract code {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .copy-btn {
+    background: linear-gradient(135deg, var(--orange), var(--orange-2));
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: opacity 0.18s, transform 0.1s;
+  }
+  .copy-btn:hover { opacity: 0.9; }
+  .copy-btn:active { transform: scale(0.97); }
+  .copy-btn.copied { background: var(--up); }
+
+  .social-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #fff;
+    border: 2px solid var(--border-soft);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    transition: border-color 0.15s, transform 0.12s;
+  }
+  .social-btn:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+  }
+  .social-btn svg { width: 18px; height: 18px; }
+
+  .footer-meta {
+    margin-top: 16px;
+    color: var(--text-dim);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px) {
+    .tokenomics-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid   { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid      { grid-template-columns: repeat(2, 1fr); }
+    .roadmap         { grid-template-columns: repeat(2, 1fr); }
+    .stats           { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-mascot img { max-width: 320px; }
+    .nav-links a:not(.btn-primary) { display: none; }
+    .chart-wrap { height: 300px; }
+    .chart-meta { text-align: left; width: 100%; }
+  }
+  @media (max-width: 520px) {
+    .tokenomics-grid { grid-template-columns: 1fr; }
+    .features-grid   { grid-template-columns: 1fr; }
+    .steps-grid      { grid-template-columns: 1fr; }
+    .roadmap         { grid-template-columns: 1fr; }
+    .stats           { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ============ NAV ============ -->
+    <header class="nav">
+      <div class="brand">
+        <img class="brand-mark" src="/assets/logo.png" alt="Topper Coin logo" />
+        <span>Topper Coin</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#chart">Chart</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#buy">How to Buy</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn-primary" href="#buy">🚀 Buy TPC</a>
+      </nav>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="badge"><span class="dot"></span> ✈️ Live on Supra</span>
+          <h1>The friendliest <span class="accent">meme coin</span> in the sky 🪙</h1>
+          <p class="lead">
+            Topper Coin (TPC) is a community-first token built on the Supra blockchain.
+            Fast, fair, and ready for takeoff — no presale, no team allocation, just vibes.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="#buy">🚀 Buy TPC</a>
+            <a class="btn-secondary" href="#chart">📈 See Live Chart</a>
+          </div>
+          <div class="pair-pill">Trading pair · <strong>TPC / SUPRA</strong> on Atmos DEX</div>
+        </div>
+        <div class="hero-mascot">
+          <img src="/assets/mascot.png" alt="Topper Harley pilot mascot holding a TPC coin" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIVE CHART ============ -->
+    <section id="chart" class="chart-section">
+      <div class="card chart-card">
+        <div class="chart-head">
+          <div>
+            <p class="chart-title" id="chartTitle">📈 TPC / USD · Live from Atmos</p>
+            <div class="chart-price">
+              <span id="livePrice">$0.0000183</span>
+              <small id="liveChange">+0.00%</small>
+            </div>
+          </div>
+          <div class="chart-meta">
+            <p class="chart-title">Last update</p>
+            <p class="chart-price" style="font-size:14px;color:var(--text-dim);font-weight:500;margin-top:4px;" id="liveTime">—</p>
+            <div class="ccy-toggle" role="tablist" aria-label="Price currency">
+              <button class="ccy-btn is-active" data-ccy="USD"   type="button" role="tab" aria-selected="true">USD</button>
+              <button class="ccy-btn"           data-ccy="SUPRA" type="button" role="tab" aria-selected="false">SUPRA</button>
+            </div>
+            <div class="ccy-toggle" role="tablist" aria-label="Time frame" style="margin-left:8px;">
+              <button class="ccy-btn"           data-frame="15m" type="button" role="tab" aria-selected="false">15M</button>
+              <button class="ccy-btn is-active" data-frame="1h"  type="button" role="tab" aria-selected="true">1H</button>
+              <button class="ccy-btn"           data-frame="12h" type="button" role="tab" aria-selected="false">12H</button>
+              <button class="ccy-btn"           data-frame="24h" type="button" role="tab" aria-selected="false">24H</button>
+            </div>
+          </div>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="priceChart"></canvas>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat card">
+          <div class="label">💵 Current Price</div>
+          <div class="value" id="statPrice">$0.0000183</div>
+        </div>
+        <div class="stat card">
+          <div class="label">📊 24h Change</div>
+          <div class="value" id="statChange">+0.00%</div>
+        </div>
+        <div class="stat card">
+          <div class="label">💰 Market Cap</div>
+          <div class="value" id="statMcap">$—</div>
+        </div>
+        <div class="stat card">
+          <div class="label">👥 Holders</div>
+          <div class="value" id="statHolders">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOKENOMICS ============ -->
+    <section id="tokenomics" class="block">
+      <h2>📊 Tokenomics</h2>
+      <p class="sectionsub">Numbers don't lie. Here's what TPC is made of.</p>
+      <div class="tokenomics-grid">
+        <div class="card-feature">
+          <div class="emoji">🪙</div>
+          <div class="label">Total Supply</div>
+          <div class="value" id="tokSupply">—</div>
+        </div>
+        <div class="card-feature">
+          <div class="emoji">💰</div>
+          <div class="label">Market Cap</div>
+          <div class="value" id="tokMcap">$—</div>
+        </div>
+        <div class="card-feature">
+          <div class="emoji">👥</div>
+          <div class="label">Holders</div>
+          <div class="value" id="tokHolders">—</div>
+        </div>
+        <div class="card-feature">
+          <div class="emoji">⛓️</div>
+          <div class="label">Blockchain</div>
+          <div class="value">Supra</div>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature">✅ Fair launch — no presale</div>
+        <div class="feature">🎯 No team allocation</div>
+        <div class="feature">🛡️ Verified contract on Supra</div>
+        <div class="feature">⚡ Fast finality &amp; low fees</div>
+      </div>
+    </section>
+
+    <!-- ============ HOW TO BUY ============ -->
+    <section id="buy" class="block">
+      <h2>🛒 How to Buy TPC</h2>
+      <p class="sectionsub">From zero to TPC in under 5 minutes. Buckle up, pilot.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-emoji">👛</div>
+          <h3>Get a Supra wallet</h3>
+          <p>Install StarKey wallet — it's the official Supra wallet, free and takes about 2 minutes to set up.</p>
+          <a href="https://starkey.app" target="_blank" rel="noopener">starkey.app →</a>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-emoji">💎</div>
+          <h3>Get some SUPRA</h3>
+          <p>Buy SUPRA on a major exchange (e.g. Bybit, MEXC, Gate) and withdraw it to your StarKey address.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-emoji">🌊</div>
+          <h3>Open Atmos DEX</h3>
+          <p>Connect your wallet to Atmos — that's where TPC liquidity lives.</p>
+          <a href="https://app.atmos.ag" target="_blank" rel="noopener">app.atmos.ag →</a>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-emoji">🔄</div>
+          <h3>Swap SUPRA → TPC</h3>
+          <p>Paste the TPC contract address (in the footer below), confirm the swap — welcome aboard! 🎉</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROADMAP ============ -->
+    <section id="roadmap" class="block">
+      <h2>🗺️ Flight Path</h2>
+      <p class="sectionsub">Where Topper is heading — strap in.</p>
+      <div class="roadmap">
+        <div class="rm-phase done">
+          <div class="rm-status">✅ Done</div>
+          <h3>Pre-flight check</h3>
+          <ul>
+            <li>Token launch on Supra</li>
+            <li>Atmos DEX liquidity</li>
+            <li>Community kickoff</li>
+            <li>Live price tracker</li>
+          </ul>
+        </div>
+        <div class="rm-phase active">
+          <div class="rm-status">🛫 In progress</div>
+          <h3>Takeoff</h3>
+          <ul>
+            <li>New playful website</li>
+            <li>DEX aggregator listings</li>
+            <li>Mascot animation series</li>
+            <li>Community contests</li>
+          </ul>
+        </div>
+        <div class="rm-phase">
+          <div class="rm-status">🎯 Soon</div>
+          <h3>Cruising altitude</h3>
+          <ul>
+            <li>Major exchange listings</li>
+            <li>Cross-chain bridges</li>
+            <li>Merchandise drop</li>
+            <li>Partnerships</li>
+          </ul>
+        </div>
+        <div class="rm-phase">
+          <div class="rm-status">🚀 Future</div>
+          <h3>Mach 5</h3>
+          <ul>
+            <li>TopperVerse mini-games</li>
+            <li>NFT collection</li>
+            <li>Treasury &amp; DAO</li>
+            <li>To the moon 🌕</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="block">
+      <h2>❓ Frequently Asked Questions</h2>
+      <p class="sectionsub">Quick answers to the things people ask the most.</p>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What is Topper Coin (TPC)?</summary>
+          <div class="faq-body">
+            Topper Coin (TPC) is a community-first meme token launched on the Supra blockchain. It's
+            playful, fair-launched, and aims to be a fun and accessible entry point into the Supra
+            ecosystem.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Where can I buy TPC?</summary>
+          <div class="faq-body">
+            On <a href="https://app.atmos.ag" target="_blank" rel="noopener">Atmos DEX</a> using the
+            TPC / SUPRA pair. See the <a href="#buy">How to Buy</a> section above for a step-by-step.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What blockchain is TPC on?</summary>
+          <div class="faq-body">
+            Supra — a fast, low-fee Layer-1 blockchain. Transactions finalize quickly and fees are
+            tiny, which makes TPC easy to trade in any size.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What's the contract address?</summary>
+          <div class="faq-body">
+            <code>0x99f84c4fda663bf3baf3a1b0980386ca084c3e9340a4d3f8713cd54ec85f4cea</code>
+            <br /><br />
+            Always verify the address against this site or our X account before swapping. The
+            contract is also pinned in the footer with a copy button.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a team allocation or presale?</summary>
+          <div class="faq-body">
+            No — TPC was a fair launch. No presale, no team allocation, no insider rounds. Liquidity
+            is locked on Atmos.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I add TPC to my wallet?</summary>
+          <div class="faq-body">
+            In StarKey, open the asset list and "Add custom token" using the contract address above.
+            Once added, your TPC balance shows up alongside your other Supra assets.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+      <div class="footer-row">
+        <div>
+          <div class="footer-label" style="margin-bottom:8px;">Contract Address</div>
+          <div class="contract">
+            <code id="contractAddr">0x99f84c4fda663bf3baf3a1b0980386ca084c3e9340a4d3f8713cd54ec85f4cea</code>
+            <button class="copy-btn" id="copyBtn" type="button">Copy</button>
+          </div>
+        </div>
+        <div class="social-row">
+          <a class="social-btn" href="https://x.com/toppercoin1965" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <a class="social-btn" href="https://suprascan.io/fa/0x99f84c4fda663bf3baf3a1b0980386ca084c3e9340a4d3f8713cd54ec85f4cea/f" target="_blank" rel="noopener">
+            🔍 Supra Explorer
+          </a>
+          <a class="social-btn" href="https://app.atmos.ag" target="_blank" rel="noopener">
+            🌊 Atmos DEX
+          </a>
+        </div>
+      </div>
+      <div class="footer-meta">© 2026 Topper Coin · Built on Supra · Made with 🪙 by the community</div>
+    </footer>
+  </div>
+
+<script>
+  // ---- Config ----
+  const FALLBACK_PRICE = 0.0000183;     // used only if the RPC is unreachable
+  const TICK_MS = 3000;
+  const TPC_DECIMALS = 6;               // matches FA metadata + Atmos pricing row
+
+  // The chart shows historical OHLC bars from /history.php (which proxies
+  // Atmos GraphQL `pricing_ohlc`). Each frame maps to a fixed bucket size;
+  // the live tick rewrites the most recent bucket every TICK_MS until enough
+  // wall-clock time elapses to roll into a new bucket.
+  const FRAME_INTERVAL_MS = {
+    '15m': 15 * 60 * 1000,
+    '1h':  60 * 60 * 1000,
+    '12h': 12 * 60 * 60 * 1000,
+    '24h': 24 * 60 * 60 * 1000,
+  };
+  const DEFAULT_FRAME = '1h';
+  const HISTORY_URL = '/history.php';
+
+  // Token addresses (Atmos / Supra).
+  const TPC_FA    = "0x99f84c4fda663bf3baf3a1b0980386ca084c3e9340a4d3f8713cd54ec85f4cea";
+  const USDC_FA   = "0xf90b4b9d4a9d87c39fb3140513e52edc3ead5eaddcb9881b02becdeb63c5793d";
+  // SUPRA's canonical 32-byte FA address.
+  const SUPRA_FA  = "0x000000000000000000000000000000000000000000000000000000000000000a";
+
+  // ---- Primary source: Atmos Protocol indexer (GraphQL) ----
+  const ATMOS_API = "https://api.atmos.ag/graphql";
+  const ATMOS_QUERY = `query($addrs:[String!]){pricing(where:{fa_address:{_in:$addrs}}){fa_address usd_price}}`;
+
+  async function fetchPricesFromAtmos() {
+    const r = await fetch(ATMOS_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: ATMOS_QUERY, variables: { addrs: [TPC_FA, SUPRA_FA] } }),
+    });
+    if (!r.ok) throw new Error("Atmos API " + r.status);
+    const j = await r.json();
+    if (j.errors) throw new Error("Atmos GraphQL: " + j.errors[0]?.message);
+    const rows = j?.data?.pricing ?? [];
+    const byAddr = Object.fromEntries(rows.map(p => [p.fa_address, Number(p.usd_price)]));
+    const tpcUsd   = byAddr[TPC_FA];
+    const supraUsd = byAddr[SUPRA_FA];
+    if (tpcUsd == null || supraUsd == null || supraUsd === 0) {
+      throw new Error("Atmos: missing pricing row(s) for TPC/SUPRA");
+    }
+    return { usd: tpcUsd, supra: tpcUsd / supraUsd };
+  }
+
+  // ---- Fallback: Atmos liquidity pool view function on Supra mainnet ----
+  const SUPRA_RPC = "https://rpc-mainnet.supra.com/rpc/v1/view";
+  const ATMOS_FN  = "0xa4a4a31116e114bf3c4f4728914e6b43db73279a4421b0768993e07248fe2234::liquidity_pool::simulate_swap_exact_in_weighted";
+  const TPC_POOL  = "0x5235d477677a6c5f18f98250fa3f27d3ca81885d2ed9affd4049973379d213d6";
+  const USDC_POOL = "0x4274ed3b66bee46d049d6217ea005438aef6599674eeb37b77b19aa7a0a91acd";
+  const ONE_UNIT  = "1000000"; // TPC and SUP_USDC both have 6 decimals
+
+  async function simulateSwap(pool, frm, to, amt) {
+    const r = await fetch(SUPRA_RPC, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        function: ATMOS_FN,
+        type_arguments: [],
+        arguments: [pool, frm, to, amt, { vec: [] }],
+      }),
+    });
+    if (!r.ok) throw new Error("Supra RPC " + r.status);
+    const j = await r.json();
+    const out = j?.result?.[0]?.amount_out;
+    if (!out) throw new Error("Bad RPC response");
+    return BigInt(out);
+  }
+
+  async function fetchPricesFromSupraPool() {
+    const [tpcToSupra, usdcToSupra] = await Promise.all([
+      simulateSwap(TPC_POOL,  TPC_FA,  SUPRA_FA, ONE_UNIT),
+      simulateSwap(USDC_POOL, USDC_FA, SUPRA_FA, ONE_UNIT),
+    ]);
+    const SCALE = 10n ** 18n;
+    return {
+      usd:   Number((tpcToSupra * SCALE) / usdcToSupra) / 1e18,
+      supra: Number(tpcToSupra) / 1e8,
+    };
+  }
+
+  async function fetchTpcSupraFromSwap() {
+    const out = await simulateSwap(TPC_POOL, TPC_FA, SUPRA_FA, ONE_UNIT);
+    return Number(out) / 1e8;  // SUPRA has 8 decimals
+  }
+
+  async function fetchTpcPrices() {
+    const [atmos, swap] = await Promise.allSettled([
+      fetchPricesFromAtmos(),
+      fetchTpcSupraFromSwap(),
+    ]);
+
+    if (atmos.status === 'fulfilled' && swap.status === 'fulfilled') {
+      return { usd: atmos.value.usd, supra: swap.value };
+    }
+    if (atmos.status === 'fulfilled') {
+      console.warn('[TPC] swap quote failed, using Atmos pricing ratio for SUPRA:', swap.reason?.message);
+      return atmos.value;
+    }
+    if (swap.status === 'fulfilled') {
+      console.warn('[TPC] Atmos pricing failed, using Supra pool for USD:', atmos.reason?.message);
+      const pool = await fetchPricesFromSupraPool();
+      return { usd: pool.usd, supra: swap.value };
+    }
+    throw new Error('all TPC price sources failed (Atmos + Supra RPC)');
+  }
+
+  async function fetchTpcTotalSupply() {
+    const r = await fetch(SUPRA_RPC, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        function: '0x1::fungible_asset::supply',
+        type_arguments: ['0x1::fungible_asset::Metadata'],
+        arguments: [TPC_FA],
+      }),
+    });
+    if (!r.ok) throw new Error('Supra supply RPC ' + r.status);
+    const j = await r.json();
+    const raw = j?.result?.[0]?.vec?.[0];
+    if (!raw) throw new Error('Bad supply response');
+    return Number(BigInt(raw)) / Math.pow(10, TPC_DECIMALS);
+  }
+
+  // Parallel histories for the two display currencies.
+  const history = { USD: [], SUPRA: [] };
+  let timestamps = [];
+  let lastPriceUsd   = FALLBACK_PRICE;
+  let lastPriceSupra = 0;
+  let currency = 'USD';
+  let currentFrame = DEFAULT_FRAME;
+  let cachedTotalSupply = null;
+
+  // ---- Formatters ----
+  function fmtTime(d) {
+    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtAxisLabel(d) {
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    return `${MONTHS_SHORT[d.getMonth()]} ${d.getDate()}, ${hh}:${mm}`;
+  }
+
+  function fmtUsdSmall(n) {
+    if (n >= 1) return '$' + n.toFixed(2);
+    if (n >= 0.01) return '$' + n.toFixed(4);
+    if (n >= 0.0001) return '$' + n.toFixed(6);
+    return '$' + n.toFixed(7);
+  }
+
+  function fmtSupra(n) {
+    if (n >= 100)    return n.toFixed(0) + ' SUPRA';
+    if (n >= 1)      return n.toFixed(2) + ' SUPRA';
+    if (n >= 0.01)   return n.toFixed(4) + ' SUPRA';
+    if (n >= 0.0001) return n.toFixed(6) + ' SUPRA';
+    return n.toFixed(8) + ' SUPRA';
+  }
+
+  function fmtPrice(n) {
+    return currency === 'USD' ? fmtUsdSmall(n) : fmtSupra(n);
+  }
+
+  function fmtCompact(n) {
+    if (n >= 1e9) return '$' + (n / 1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(2) + 'M';
+    if (n >= 1e3) return '$' + (n / 1e3).toFixed(2) + 'K';
+    return '$' + n.toFixed(2);
+  }
+
+  // Compact unit count (used for the supply card — no $ prefix).
+  function fmtCount(n) {
+    if (n >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+    if (n >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+    if (n >= 1e3) return (n / 1e3).toFixed(2) + 'K';
+    return n.toLocaleString('en-US');
+  }
+
+  function fmtNumber(n) { return n.toLocaleString('en-US'); }
+
+  async function fetchHistory(frame) {
+    const r = await fetch(HISTORY_URL + '?granularity=' + encodeURIComponent(frame));
+    if (!r.ok) throw new Error('history proxy ' + r.status);
+    const j = await r.json();
+    if (j.error) throw new Error('history: ' + j.error);
+    if (!Array.isArray(j.points) || j.points.length === 0) {
+      throw new Error('history: empty payload');
+    }
+    return j.points;
+  }
+
+  function seedHistoryFromPoints(points) {
+    timestamps = points.map(p => Date.parse(p.t));
+    history.USD   = points.map(p => Number(p.usd));
+    history.SUPRA = points.map(p => Number(p.supra));
+    lastPriceUsd   = history.USD[history.USD.length - 1];
+    lastPriceSupra = history.SUPRA[history.SUPRA.length - 1];
+  }
+
+  // ---- Chart ----
+  const canvas = document.getElementById('priceChart');
+  const ctx = canvas.getContext('2d');
+  // Sky-blue line with a soft fill that fades through orange — matches the playful palette.
+  const gradient = ctx.createLinearGradient(0, 0, 0, 380);
+  gradient.addColorStop(0, 'rgba(91, 192, 235, 0.40)');
+  gradient.addColorStop(1, 'rgba(255, 140, 90, 0.00)');
+
+  let chart;
+  function initChart() {
+    chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: timestamps.map(t => fmtAxisLabel(new Date(t))),
+      datasets: [{
+        label: 'TPC / ' + currency,
+        data: history[currency].slice(),
+        borderColor: '#3DA5D9',
+        backgroundColor: gradient,
+        borderWidth: 3,
+        fill: true,
+        tension: 0.35,
+        pointRadius: 0,
+        pointHoverRadius: 6,
+        pointHoverBackgroundColor: '#FF6B35',
+        pointHoverBorderColor: '#fff',
+        pointHoverBorderWidth: 2,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#FFF8E7',
+          borderColor: '#FF6B35',
+          borderWidth: 2,
+          titleColor: '#1F2937',
+          bodyColor: '#1F2937',
+          padding: 12,
+          callbacks: {
+            label: (c) => fmtPrice(c.parsed.y),
+          },
+        },
+      },
+      scales: {
+        x: {
+          ticks: { color: '#6B7280', maxTicksLimit: 8, font: { family: 'Fredoka', size: 11 } },
+          grid: { color: 'rgba(31,41,55,0.06)' },
+        },
+        y: {
+          ticks: {
+            color: '#6B7280',
+            font: { family: 'Fredoka', size: 11 },
+            callback: (v) => fmtPrice(v),
+          },
+          grid: { color: 'rgba(31,41,55,0.06)' },
+        },
+      },
+      animation: { duration: 500 },
+    },
+  });
+  }
+
+  // ---- Stats ----
+  const elLivePrice = document.getElementById('livePrice');
+  const elLiveChange = document.getElementById('liveChange');
+  const elLiveTime = document.getElementById('liveTime');
+  const elStatPrice = document.getElementById('statPrice');
+  const elStatChange = document.getElementById('statChange');
+  const elStatMcap = document.getElementById('statMcap');
+  const elStatHolders = document.getElementById('statHolders');
+  // Tokenomics section mirrors of the same values
+  const elTokSupply  = document.getElementById('tokSupply');
+  const elTokMcap    = document.getElementById('tokMcap');
+  const elTokHolders = document.getElementById('tokHolders');
+
+  const HOLDERS_FALLBACK = 1247;
+  const HOLDERS_REFRESH_MS = 60_000;
+  let cachedHolders = null;
+
+  async function fetchHolderCount() {
+    const r = await fetch('/holders.php', { cache: 'no-store' });
+    if (!r.ok) throw new Error('holders proxy ' + r.status);
+    const j = await r.json();
+    if (typeof j.holders !== 'number') throw new Error('bad holders payload');
+    return j.holders;
+  }
+
+  function setChange(el, pct) {
+    const sign = pct >= 0 ? '+' : '';
+    el.textContent = sign + pct.toFixed(2) + '%';
+    el.classList.toggle('up', pct >= 0);
+    el.classList.toggle('down', pct < 0);
+  }
+
+  function renderStats() {
+    const series = history[currency];
+    const first = series[0];
+    const last = series[series.length - 1];
+    const changePct = ((last - first) / first) * 100;
+
+    elLivePrice.textContent = fmtPrice(last);
+    setChange(elLiveChange, changePct);
+    elLiveTime.textContent = fmtTime(new Date(timestamps[timestamps.length - 1]));
+
+    elStatPrice.textContent = fmtPrice(last);
+    setChange(elStatChange, changePct);
+
+    const holders = cachedHolders ?? HOLDERS_FALLBACK;
+    elStatHolders.textContent = fmtNumber(holders);
+    if (elTokHolders) elTokHolders.textContent = fmtNumber(holders);
+
+    if (cachedTotalSupply != null) {
+      const mcap = fmtCompact(lastPriceUsd * cachedTotalSupply);
+      elStatMcap.textContent = mcap;
+      if (elTokMcap)   elTokMcap.textContent = mcap;
+      if (elTokSupply) elTokSupply.textContent = fmtCount(cachedTotalSupply);
+    }
+  }
+
+  function applyLivePrices(usd, supra) {
+    const now = Date.now();
+    lastPriceUsd = usd;
+    lastPriceSupra = supra;
+    if (timestamps.length === 0) return;
+    const bucketMs = FRAME_INTERVAL_MS[currentFrame];
+    const lastBucketTime = timestamps[timestamps.length - 1];
+    if (now - lastBucketTime >= bucketMs) {
+      history.USD.push(usd); history.SUPRA.push(supra); timestamps.push(now);
+    } else {
+      history.USD[history.USD.length - 1]     = usd;
+      history.SUPRA[history.SUPRA.length - 1] = supra;
+      timestamps[timestamps.length - 1]       = now;
+    }
+    chart.data.labels = timestamps.map(t => fmtAxisLabel(new Date(t)));
+    chart.data.datasets[0].data = history[currency].slice();
+    chart.update('none');
+
+    renderStats();
+  }
+
+  async function tick() {
+    try {
+      const { usd, supra } = await fetchTpcPrices();
+      applyLivePrices(usd, supra);
+    } catch (err) {
+      console.warn('[TPC] live price fetch failed:', err.message);
+    }
+    if (cachedTotalSupply == null) {
+      try {
+        cachedTotalSupply = await fetchTpcTotalSupply();
+        renderStats();
+      } catch (err) {
+        console.warn('[TPC] supply fetch retry failed:', err.message);
+      }
+    }
+  }
+
+  async function refreshHolders() {
+    try {
+      cachedHolders = await fetchHolderCount();
+      renderStats();
+    } catch (err) {
+      console.warn('[TPC] holders fetch failed:', err.message);
+    }
+  }
+
+  // ---- Currency toggle ----
+  function setCurrency(next) {
+    if (next !== 'USD' && next !== 'SUPRA') return;
+    if (next === currency) return;
+    currency = next;
+    document.querySelectorAll('.ccy-btn[data-ccy]').forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.ccy === currency);
+      btn.setAttribute('aria-selected', btn.dataset.ccy === currency ? 'true' : 'false');
+    });
+    document.getElementById('chartTitle').textContent = '📈 TPC / ' + currency + ' · Live from Atmos';
+    if (chart) {
+      chart.data.datasets[0].label = 'TPC / ' + currency;
+      chart.data.datasets[0].data = history[currency].slice();
+      chart.update();
+    }
+    renderStats();
+  }
+  document.querySelectorAll('.ccy-btn[data-ccy]').forEach(btn => {
+    btn.addEventListener('click', () => setCurrency(btn.dataset.ccy));
+  });
+
+  // ---- Time frame toggle ----
+  async function setFrame(next) {
+    if (!FRAME_INTERVAL_MS.hasOwnProperty(next)) return;
+    if (next === currentFrame) return;
+    currentFrame = next;
+    document.querySelectorAll('.ccy-btn[data-frame]').forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.frame === currentFrame);
+      btn.setAttribute('aria-selected', btn.dataset.frame === currentFrame ? 'true' : 'false');
+    });
+    try {
+      const points = await fetchHistory(currentFrame);
+      seedHistoryFromPoints(points);
+      chart.data.labels = timestamps.map(t => fmtAxisLabel(new Date(t)));
+      chart.data.datasets[0].data = history[currency].slice();
+      chart.update();
+      renderStats();
+    } catch (err) {
+      console.warn('[TPC] frame change failed:', err.message);
+    }
+  }
+  document.querySelectorAll('.ccy-btn[data-frame]').forEach(btn => {
+    btn.addEventListener('click', () => setFrame(btn.dataset.frame));
+  });
+
+  // ---- Init ----
+  (async function init() {
+    const [historyResult, prices, supply, holders] = await Promise.all([
+      fetchHistory(currentFrame).catch(err => {
+        console.warn('[TPC] initial history fetch failed:', err.message);
+        return null;
+      }),
+      fetchTpcPrices().catch(err => {
+        console.warn('[TPC] initial price fetch failed, using fallback:', err.message);
+        return { usd: FALLBACK_PRICE, supra: 0 };
+      }),
+      fetchTpcTotalSupply().catch(err => {
+        console.warn('[TPC] initial supply fetch failed:', err.message);
+        return null;
+      }),
+      fetchHolderCount().catch(err => {
+        console.warn('[TPC] initial holders fetch failed, using fallback:', err.message);
+        return null;
+      }),
+    ]);
+    cachedTotalSupply = supply;
+    cachedHolders = holders;
+
+    if (historyResult) {
+      seedHistoryFromPoints(historyResult);
+    } else {
+      timestamps = [Date.now()];
+      history.USD   = [prices.usd];
+      history.SUPRA = [prices.supra];
+      lastPriceUsd   = prices.usd;
+      lastPriceSupra = prices.supra;
+    }
+    initChart();
+    renderStats();
+    setInterval(tick, TICK_MS);
+    setInterval(refreshHolders, HOLDERS_REFRESH_MS);
+  })();
+
+  // ---- Copy button ----
+  const copyBtn = document.getElementById('copyBtn');
+  const contractAddr = document.getElementById('contractAddr');
+  copyBtn.addEventListener('click', async () => {
+    const text = contractAddr.textContent.trim();
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    copyBtn.textContent = '✅ Copied!';
+    copyBtn.classList.add('copied');
+    setTimeout(() => {
+      copyBtn.textContent = 'Copy';
+      copyBtn.classList.remove('copied');
+    }, 1600);
+  });
+</script>
+</body>
+</html>
